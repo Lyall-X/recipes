@@ -11,3 +11,8 @@ macro(BUILD_SERVER_MACRO project_name)
 	add_executable(${project_name} ${SOURCE_CODE})
     set_target_properties(${project_name} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_INSTALL_PREFIX})
 endmacro(BUILD_SERVER_MACRO project_name)
+
+macro(BUILD_MAIN_MACRO main_file)
+	add_executable(${main_file} ${main_file}.cc)
+    set_target_properties(${main_file} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_INSTALL_PREFIX})
+endmacro(BUILD_MAIN_MACRO main_file)

@@ -1,1 +1,1 @@
-BUILD_SERVER_MACRO(factory)
+BUILD_MAIN_MACRO(factory)
