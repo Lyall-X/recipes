@@ -1,1 +1,13 @@
 BUILD_MAIN_MACRO(factory)
+BUILD_MAIN_MACRO(abstact_factory)
+BUILD_MAIN_MACRO(builder)
+BUILD_MAIN_MACRO(prototype)
+BUILD_MAIN_MACRO(singleton)
+
+
+BUILD_MAIN_MACRO(adapter)
+BUILD_MAIN_MACRO(bridge)
+BUILD_MAIN_MACRO(composite)
+BUILD_MAIN_MACRO(decorator)
+BUILD_MAIN_MACRO(facade)
+BUILD_MAIN_MACRO(flyweight)

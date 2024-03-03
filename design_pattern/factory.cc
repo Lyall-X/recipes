@@ -15,26 +15,41 @@ public:
     }
 };
 
-// Factory
-class BaseFactory
+class MaterialItem : public BaseItem
 {
 public:
-    virtual BaseItem *Create() = 0;
+    void Name() override
+    {
+        std::cout << "MaterialItem" << std::endl;
+    }
+};
+enum ItemType
+{
+    Weapon = 0,
+    Material = 1
 };
 
-class WeaponFactory : public BaseFactory
+// Factory
+class ItemFactory
 {
 public:
-    BaseItem *Create() override
+    BaseItem *Create( ItemType type = Weapon)
     {
-        return new WeaponItem();
+        if (type == Weapon)
+        {
+            return new WeaponItem();
+        }
+        else
+        {
+            return new MaterialItem();
+        }
     }
 };
 
 int main()
 {
-    BaseFactory *factory = new WeaponFactory();
-    BaseItem *item = factory->Create();
+    ItemFactory factory;
+    BaseItem *item = factory.Create(ItemType::Weapon);
     item->Name();
     return 0;
 }
