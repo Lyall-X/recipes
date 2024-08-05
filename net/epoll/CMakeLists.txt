@@ -1,0 +1,2 @@
+BUILD_MAIN_MACRO(epoll)
+BUILD_MAIN_MACRO(client)
