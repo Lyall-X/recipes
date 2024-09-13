@@ -16,3 +16,13 @@ macro(BUILD_MAIN_MACRO main_file)
 	add_executable(${main_file} ${main_file}.cc)
     set_target_properties(${main_file} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_INSTALL_PREFIX})
 endmacro(BUILD_MAIN_MACRO main_file)
+
+
+macro(BUILD_ALL_MAIN_MACRO)
+    file(GLOB ALL_FILES "${CMAKE_CURRENT_SOURCE_DIR}/*.cc")
+    foreach(FILE ${ALL_FILES})
+        get_filename_component(FILE_NAME ${FILE} NAME)
+        string(REGEX REPLACE ".cc" "" FILE_NAME ${FILE_NAME})
+        BUILD_MAIN_MACRO(${FILE_NAME})
+    endforeach()
+endmacro(BUILD_ALL_MAIN_MACRO)
