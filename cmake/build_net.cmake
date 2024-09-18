@@ -2,6 +2,7 @@ set(CXX_FLAG_LIST
     "-Wextra"
     "-Werror"
     "-Wall"
+    "-fmodules"
 )
 string(REPLACE ";" " " CXX_FLAGS "${CXX_FLAG_LIST}")
 set(CXX_FLAGS "${CXX_FLAGS} -fsanitize=address -fsanitize=leak -fsanitize-recover=address -fno-omit-frame-pointer")
