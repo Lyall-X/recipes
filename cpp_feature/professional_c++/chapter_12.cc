@@ -7,6 +7,7 @@
  *  2.copy-and-swap idiom: just for copy assignment operator; move semantic is noexpt func
  *  3.std::strcmp(): compare with char*
  *  4.auto: strip away reference and const qualifiers, but decltype don't strip it. decltype(auto): Before c++14, using auto func() -> decltype(expression)
+ *  5.concept
  * @copyright Copyright ASDA(c) 2024
  *
  */
@@ -206,4 +207,70 @@ decltype(std::declval<T>() + std::declval<T>()) func3(const T& t1, const T& t2)
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// concept
+/*
+1.concept: make sure concept mode semantics and not just syntax.
+constrains-expression can be any constant expression and must result in Boolean value; or a new type of constant expression: Requires Expressions
+↓ a familiar template header, template<>, but concepts are never instantiated.
+
+template <parameter-list>
+concept concept-name = constrains-expression
+
+
+2.Requires Expressions:
+requirement(4 types): simple, type, compound, and nested requirements,
+
+            optional
+requires {parameter-list} { requirement; }
+
+    a.Simple Requirements:
+    template <typename T>
+    concept Incrementable = requires(T x) { x++; ++x; };
+
+    b.Type Requirements:
+    template <typename T>
+    concept C = requires { typename T::value_type; };
+
+    c.Compound Requirements: type-constraint:never a type like bool
+    syntex:
+        { expression } noexcept -> type-constraint;
+    example:
+        template <typename T>
+        concept C = requires (const T x) {
+            { x.size() } -> convertible_to<size_t>;
+            { x.˜T()} noexcept
+        };
+
+    d.Nested Requirements
+    template <typename T>
+    concept C = requires (T t) {
+        ++t; --t; t++; t--;
+        requires sizeof(t) == 4;
+    }
+
+
+3.Type-Constrained auto
+(type constraints) auto value1 { 1 };
+*/
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+/*
+Predefined Standard Concepts:
+1.Core language concepts: same_sa, derived_from, convertible_to, integral, floating_point, copy_constructible
+2.Comparison concepts: equality_comparable,totally_ordered
+3.Object concepts: movable, copyable
+4.Callable concepts: invocable, predicate
+*/
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+/*
+Type Constraints and Function Template:
+- constraints-expression: same as the constraints of concepts
+
+1.
+template <typename T> requires constraints-expression
+void process(const T& t);
+2.instead of "typename"
+
+3.auto constraints
+void process(Incrementable auto& t);
+*/
