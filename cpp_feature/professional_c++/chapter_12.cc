@@ -57,10 +57,10 @@ class Grid
         verifyCoordinate(x, y);
         return m_cells[x][y];
     }
-    std::optional<T>& at(std::size_t x, std::size_t y)
-    {
-        return const_cast<std::optional<T>&>(std::as_const(*this).at(x, y));
-    }
+    // std::optional<T>& at(std::size_t x, std::size_t y)
+    // {
+    //     return const_cast<std::optional<T>&>(std::as_const(*this).at(x, y));
+    // }
 
     std::size_t getWidth() { return WIDTH; }
     std::size_t getHeight() { return HEIGHT; }
