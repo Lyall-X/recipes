@@ -4,6 +4,8 @@ set(CXX_FLAG_LIST
     "-Wall"
     "-fmodules"
     "-std=c++23"
+    "-fno-elide-constructors" # close RVO
+    "-Wno-unused-variable"
 )
 string(REPLACE ";" " " CXX_FLAGS "${CXX_FLAG_LIST}")
 set(CXX_FLAGS "${CXX_FLAGS} -fsanitize=address -fsanitize=leak -fsanitize-recover=address -fno-omit-frame-pointer")
@@ -15,6 +17,7 @@ set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CXX_FLAGS} -O2 -g -DNDEBUG")              
 add_subdirectory(design_pattern)
 add_subdirectory(cpp_feature)
 add_subdirectory(net)
+add_subdirectory(leetcode)
 
 message("CMAKE_CXX_FLAGS_DEBUG is ${CMAKE_CXX_FLAGS_DEBUG}")
 message("CMAKE_CXX_FLAGS_RELEASE is ${CMAKE_CXX_FLAGS_RELEASE}")
