@@ -1,0 +1,1 @@
+BUILD_ALL_MAIN_MACRO_PREFIX("template_")

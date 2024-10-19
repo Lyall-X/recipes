@@ -1,5 +1,6 @@
 add_subdirectory(11)
 add_subdirectory(20)
+add_subdirectory(template)
 add_subdirectory(thread)
 add_subdirectory(professional_c++)
 add_subdirectory(effective_c++)
