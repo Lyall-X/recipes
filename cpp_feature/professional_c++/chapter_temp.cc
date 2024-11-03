@@ -43,13 +43,29 @@ void Thread()
 {
     Counter();
 };
+
+struct A
+{
+    constexpr A(){};
+    int a;
+};
+
+consteval int test(int num)
+{
+    A* a = new A();
+    a->a = num;
+    delete a;
+    return num;
+};
 int main()
 {
-    std::jthread t1(Counter);
-    std::jthread t2(Counter);
-    std::jthread t3(Counter);
+    constexpr int a = test(1);
+    static_assert(a == 1);
+    // std::jthread t1(Counter);
+    // std::jthread t2(Counter);
+    // std::jthread t3(Counter);
 
-    printf("this is main\n");
-    std::this_thread::sleep_for(std::chrono::seconds(1));
+    // printf("this is main\n");
+    // std::this_thread::sleep_for(std::chrono::seconds(1));
     return 0;
 };

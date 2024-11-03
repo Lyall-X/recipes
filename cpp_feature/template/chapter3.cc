@@ -2,9 +2,12 @@
 #include <cstdlib>
 
 // ################## 1. concept ##################
+/**
+ * 平凡的约束: is_trivial_v 安全的执行 memcpy 函数
+ */
 #include <type_traits>
 template <typename T>
-concept integral = std::is_integral_v<T>;
+concept integral = std::is_trivial_v<T>;
 
 // 合取与析取
 template <typename T>
