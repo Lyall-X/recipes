@@ -18,6 +18,7 @@ add_subdirectory(design_pattern)
 add_subdirectory(cpp_feature)
 add_subdirectory(net)
 add_subdirectory(leetcode)
+add_subdirectory(projects)
 
 message("CMAKE_CXX_FLAGS_DEBUG is ${CMAKE_CXX_FLAGS_DEBUG}")
 message("CMAKE_CXX_FLAGS_RELEASE is ${CMAKE_CXX_FLAGS_RELEASE}")

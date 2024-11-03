@@ -1,1 +1,2 @@
 BUILD_ALL_MAIN_MACRO()
+target_link_libraries(chapter_27 atomic)
