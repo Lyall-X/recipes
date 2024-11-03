@@ -13,6 +13,7 @@ void func(int){};
 1. 静态成员变量  T::value, 类型别名 typename T::value(c++20放松了限制)
 2. 模板元编程 -> 优于 SFINAE
 3. 函数重载不考虑返回值: 因为返回值可以不处理
+4. 模板约束: 额外模板参数 enable_if_t, 返回值限定 auto xxx() -> enable_if_t<is_same_v<T, int>, int>
 */
 
 // ################## 1. declvalue ##################
