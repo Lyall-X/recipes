@@ -1,1 +1,2 @@
 add_subdirectory(hotfix)
+add_subdirectory(concurrentqueue)
