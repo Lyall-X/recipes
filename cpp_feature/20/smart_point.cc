@@ -19,7 +19,7 @@ class Base
     {
         printf("Base constructor\n");
     }
-    ~Base()
+    virtual ~Base()
     {
         printf("Base destructor\n");
     }
@@ -31,7 +31,7 @@ class Derived : public Base
     {
         printf("Derived constructor\n");
     }
-    ~Derived()
+    ~Derived() override
     {
         printf("Derived destructor\n");
     }

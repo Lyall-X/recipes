@@ -133,11 +133,9 @@ struct hash<Point>
 
 int main()
 {
-    float a{};  // 统一初始化器
-    [[maybe_unused]]
-    int b{static_cast<int>(a)};  // 优雅的类型转换
-    [[maybe_unused]]
-    int arr[1]{};
+    float a{};                                    // 统一初始化器
+    [[maybe_unused]] int b{static_cast<int>(a)};  // 优雅的类型转换
+    [[maybe_unused]] int arr[1]{};
     std::array arrstl{1, 2, 3};
     std::printf("%zu, %lu, %zu\n", std::size(arr), sizeof(arr) / sizeof(arr[0]), std::size(arrstl));  // 0
 
@@ -155,7 +153,6 @@ int main()
     // }
 
     // InitList({1, 2, 3, 4, 5});  // 1, 2, 3, 4, 5
-    [[maybe_unused]]
-    CopyAndSwap swap = CreateCopyAndSwap();
+    [[maybe_unused]] CopyAndSwap swap = CreateCopyAndSwap();
     return 0;
 }
