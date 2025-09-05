@@ -7,6 +7,7 @@ set(CXX_FLAG_LIST
     "-fno-elide-constructors" # close RVO
     "-Wno-unused-variable"
     "-Wno-unused-but-set-variable"
+    "-Wno-sign-compare"
 )
 string(REPLACE ";" " " CXX_FLAGS "${CXX_FLAG_LIST}")
 set(CXX_FLAGS "${CXX_FLAGS} -fsanitize=address -fsanitize=leak -fsanitize-recover=address -fno-omit-frame-pointer")
@@ -14,6 +15,10 @@ set(CXX_FLAGS "${CXX_FLAGS} -fsanitize=address -fsanitize=leak -fsanitize-recove
 set(CMAKE_CXX_FLAGS_DEBUG "${CXX_FLAGS} -O0 -g -ggdb")                            # Debug
 set(CMAKE_CXX_FLAGS_RELEASE "${CXX_FLAGS} -O2 -DNDEBUG")                          # Release
 set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CXX_FLAGS} -O2 -g -DNDEBUG")                # RelWithDebInfo
+
+include_directories(
+    ${CMAKE_SOURCE_DIR}
+)
 
 add_subdirectory(design_pattern)
 add_subdirectory(cpp_feature)
